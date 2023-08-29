@@ -1,41 +1,49 @@
 from Pieza import Pieza, TipoPieza,TipoBando
 from typing import List
+import inspect
+
 class Tablero():
     def __init__(self):
         self.piezas = []
-        self.piezas.append(Pieza(TipoPieza.ALFIL, True, (3, 1), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.ALFIL, True, (6, 1), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.TORRE, True, (1, 1), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.TORRE, True, (8, 1), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.CABALLO, True, (2, 1), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.CABALLO, True, (7, 1), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (1, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (2, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (3, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (4, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (5, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (6, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (7, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (8, 2), TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.REINA,True,(4,1),TipoBando.BLANCO))
-        self.piezas.append(Pieza(TipoPieza.REY, True, (5, 1), TipoBando.BLANCO))
+        probar_tablas=False
+        if probar_tablas:
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (1, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.REY, True, (5, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.REY, True, (5, 8), TipoBando.NEGRO))
+        else:
+            self.piezas.append(Pieza(TipoPieza.ALFIL, True, (3, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.ALFIL, True, (6, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.TORRE, True, (1, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.TORRE, True, (8, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.CABALLO, True, (2, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.CABALLO, True, (7, 1), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (1, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (2, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (3, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (4, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (5, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (6, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (7, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (8, 2), TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.REINA,True,(4,1),TipoBando.BLANCO))
+            self.piezas.append(Pieza(TipoPieza.REY, True, (5, 1), TipoBando.BLANCO))
 
-        self.piezas.append(Pieza(TipoPieza.ALFIL, True, (3, 8), TipoBando.NEGRO))
-        self.piezas.append( Pieza(TipoPieza.ALFIL, True, (6, 8), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.TORRE, True, (1, 8), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.TORRE, True, (8, 8), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.CABALLO, True, (2, 8), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.CABALLO, True, (7, 8), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (1, 7), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (2, 7), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (3, 7), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (4, 7), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.PEON, True, (5, 7), TipoBando.NEGRO))
-        self.piezas.append( Pieza(TipoPieza.PEON, True, (6, 7), TipoBando.NEGRO))
-        self.piezas.append( Pieza(TipoPieza.PEON, True, (7, 7), TipoBando.NEGRO))
-        self.piezas.append( Pieza(TipoPieza.PEON, True, (8, 7), TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.REINA,True,(4,8),TipoBando.NEGRO))
-        self.piezas.append(Pieza(TipoPieza.REY, True, (5, 8), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.ALFIL, True, (3, 8), TipoBando.NEGRO))
+            self.piezas.append( Pieza(TipoPieza.ALFIL, True, (6, 8), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.TORRE, True, (1, 8), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.TORRE, True, (8, 8), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.CABALLO, True, (2, 8), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.CABALLO, True, (7, 8), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (1, 7), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (2, 7), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (3, 7), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (4, 7), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.PEON, True, (5, 7), TipoBando.NEGRO))
+            self.piezas.append( Pieza(TipoPieza.PEON, True, (6, 7), TipoBando.NEGRO))
+            self.piezas.append( Pieza(TipoPieza.PEON, True, (7, 7), TipoBando.NEGRO))
+            self.piezas.append( Pieza(TipoPieza.PEON, True, (8, 7), TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.REINA,True,(4,8),TipoBando.NEGRO))
+            self.piezas.append(Pieza(TipoPieza.REY, True, (5, 8), TipoBando.NEGRO))
     def remover_pieza(self,pieza):
         self.piezas.remove(pieza)
 
@@ -62,27 +70,30 @@ class Tablero():
                     self.remove(lista_por_ahora, a.posicion)
         return lista_por_ahora
 
-    def posibles_movimientos_bien(self, pieza: Pieza, turno, sin_rey=False):
-        lista_de_movimientos=self.posibles_movimientos(pieza, sin_rey)
+    def posibles_movimientos_bien(self, pieza: Pieza, turno):
+        lista_de_movimientos=self.posibles_movimientos(pieza, turno)
+        print("+posibles_movimientos_bien ", lista_de_movimientos)
         posicion_momentanea=pieza.posicion
         rs=[]
         for a in lista_de_movimientos:
-
             la_que_hace = self.encontrar_pieza(a)
             if la_que_hace != None:
                 self.remover_pieza(la_que_hace)
-            pieza.posicion = a
-            if self.tiene_jaque(turno) == False:
-                rs.append(a)
-            if la_que_hace != None:
+                pieza.posicion = a
+                if self.tiene_jaque(turno) == False:
+                    rs.append(a)
                 self.piezas.append(la_que_hace)
+                pieza.posicion=posicion_momentanea
+            else:
+                pieza.posicion = a
+                if self.tiene_jaque(turno) == False:
+                    rs.append(a)
+                pieza.posicion=posicion_momentanea
 
-
-
-            pieza.posicion=posicion_momentanea
+        print("-posibles_movimientos_bien ", rs)
         return rs
 
-    def posibles_movimientos(self,pieza: Pieza, turno: TipoBando, sin_rey = False):
+    def posibles_movimientos(self,pieza: Pieza, turno: TipoBando, sin_rey = False,evitar_jaque=False):
         lista_de_movimientos=[]
         if TipoPieza.ALFIL == pieza.tipo:
             lista_de_movimientos=self.posibles_movimientos_bien_alfil(pieza)
@@ -91,7 +102,7 @@ class Tablero():
         if sin_rey == False and TipoPieza.TORRE == pieza.tipo:
             lista_de_movimientos=self.posibles_movimientos_bien_torre(pieza)
         if TipoPieza.PEON == pieza.tipo:
-            lista_de_movimientos=self.posibles_movimientos_bien_peon(pieza)
+            lista_de_movimientos=self.posibles_movimientos_bien_peon(pieza,turno,evitar_jaque)
         if TipoPieza.REINA==pieza.tipo:
             lista_de_movimientos=self.posibles_movimientos_de_reina(pieza)
         if sin_rey == False and TipoPieza.REY==pieza.tipo:
@@ -247,8 +258,8 @@ class Tablero():
             lista_de_movimientos.append(((pieza.posicion[0] - 1), (pieza.posicion[1] - 2)))
         elif self.encontrar_pieza(((pieza.posicion[0] - 1), (pieza.posicion[1] - 2))).bando != pieza.bando:
             lista_de_movimientos.append(((pieza.posicion[0] - 1), (pieza.posicion[1] - 2)))
-            lista_de_movimientos = list(
-                filter(lambda a: a[0] > 0 and a[1] > 0 and a[0] <= 8 and a[1] <= 8, lista_de_movimientos))
+        lista_de_movimientos = list(
+            filter(lambda a: a[0] > 0 and a[1] > 0 and a[0] <= 8 and a[1] <= 8, lista_de_movimientos))
         return lista_de_movimientos
 
 
@@ -269,32 +280,78 @@ class Tablero():
 
         return lista_de_movimientos
 
-    def posibles_movimientos_bien_peon(self, pieza):
-        lista_por_ahora = self.posibles_movimientos_de_peon(pieza)
-        for a in self.piezas:
-            if a.posicion in lista_por_ahora:
-                if pieza.bando==TipoBando.BLANCO:
-                    if a.posicion==(pieza.posicion[0],pieza.posicion[1]+1):
-                        self.remove(lista_por_ahora,a.posicion)
-                        if pieza.posicion[1]==2:
-                            self.remove(lista_por_ahora,(a.posicion[0],a.posicion[1]+2))
-                    elif a.posicion==(pieza.posicion[0],pieza.posicion[1]+2):
-                        self.remove(lista_por_ahora,a.posicion)
-                else:
-                    if a.posicion==(pieza.posicion[0],pieza.posicion[1]-1):
-                        self.remove(lista_por_ahora,a.posicion)
-                        if pieza.posicion[1]==7:
-                            self.remove(lista_por_ahora,(a.posicion[0 ], a.posicion[1] - 2))
-                    elif a.posicion==(pieza.posicion[0],pieza.posicion[1]-2):
-                        self.remove(lista_por_ahora,a.posicion)
+    def posibles_movimientos_bien_peon(self, pieza,turno,evitar_jaque):
 
+        if evitar_jaque == False:
+            lista_por_ahora = self.posibles_movimientos_de_peon(pieza)
+            #Elimino movimientos que que estorban
+            for a in self.piezas:
+                if a.posicion in lista_por_ahora:
+                    if pieza.bando==TipoBando.BLANCO:
+                        if a.posicion==(pieza.posicion[0],pieza.posicion[1]+1):
+                            self.remove(lista_por_ahora,a.posicion)
+                            self.remove(lista_por_ahora, (a.posicion[0], a.posicion[1] + 1))
+                            if pieza.posicion[1]==2:
+                                self.remove(lista_por_ahora,(a.posicion[0],a.posicion[1]+2))
+                        elif a.posicion==(pieza.posicion[0],pieza.posicion[1]+2):
+                            self.remove(lista_por_ahora,a.posicion)
+                    else:
+                        if a.posicion==(pieza.posicion[0],pieza.posicion[1]-1):
+                            self.remove(lista_por_ahora,a.posicion)
+                            self.remove(lista_por_ahora, (a.posicion[0], a.posicion[1] - 1))
+                            if pieza.posicion[1]==7:
+                                self.remove(lista_por_ahora,(a.posicion[0], a.posicion[1] - 2))
+                        elif a.posicion==(pieza.posicion[0],pieza.posicion[1]-2):
+                            self.remove(lista_por_ahora,a.posicion)
+
+                else:
+                    pass
+
+                if TipoBando.BLANCO==turno:
+                    if a.posicion==(pieza.posicion[0]-1,pieza.posicion[1]+1) and a.bando!=pieza.bando :
+                        lista_por_ahora.append((pieza.posicion[0]-1,pieza.posicion[1]+1))
+                    if a.posicion==(pieza.posicion[0]+1,pieza.posicion[1]+1) and a.bando!=pieza.bando:
+                        lista_por_ahora.append((pieza.posicion[0]+1,pieza.posicion[1]+1))
+                else:
+                    if a.posicion == (pieza.posicion[0] - 1, pieza.posicion[1] - 1) and a.bando != pieza.bando:
+                        lista_por_ahora.append((pieza.posicion[0] - 1, pieza.posicion[1] - 1))
+                    if a.posicion == (pieza.posicion[0] + 1, pieza.posicion[1] - 1) and a.bando != pieza.bando:
+                        lista_por_ahora.append((pieza.posicion[0] + 1, pieza.posicion[1] - 1))
+        else:
+            lista_por_ahora=[]
+            if TipoBando.BLANCO==turno:
+                if pieza.posicion[0] == 1:
+                    lista_por_ahora.append((pieza.posicion[0]+1,pieza.posicion[1]+1))
+                elif pieza.posicion[0] == 8:
+                    lista_por_ahora.append((pieza.posicion[0]-1,pieza.posicion[1]+1))
+                else:
+                    lista_por_ahora.append((pieza.posicion[0]-1,pieza.posicion[1]+1))
+                    lista_por_ahora.append((pieza.posicion[0]+1,pieza.posicion[1]+1))
             else:
-                pass
-            if a.posicion==(pieza.posicion[0]-1,pieza.posicion[1]+1) and a.bando!=pieza.bando:
-                lista_por_ahora.append((pieza.posicion[0]-1,pieza.posicion[1]+1))
-            if a.posicion==(pieza.posicion[0]+1,pieza.posicion[1]+1) and a.bando!=pieza.bando:
-                lista_por_ahora.append((pieza.posicion[0]+1,pieza.posicion[1]+1))
+                if pieza.posicion[0] == 1:
+                    lista_por_ahora.append((pieza.posicion[0] + 1, pieza.posicion[1] - 1))
+                elif pieza.posicion[0] == 8:
+                    lista_por_ahora.append((pieza.posicion[0] - 1, pieza.posicion[1] - 1))
+                else:
+                    lista_por_ahora.append((pieza.posicion[0] - 1, pieza.posicion[1] - 1))
+                    lista_por_ahora.append((pieza.posicion[0] + 1, pieza.posicion[1] - 1))
         return lista_por_ahora
+    def coronacion(self,pieza,pieza_elegida):
+        print(pieza_elegida)
+        if pieza_elegida==TipoPieza.REINA:
+            self.piezas.append(Pieza(TipoPieza.REINA,True,pieza.posicion,pieza.bando))
+            self.remove(self.piezas,pieza)
+        elif pieza_elegida==TipoPieza.TORRE:
+            self.piezas.append(Pieza(TipoPieza.TORRE,True,pieza.posicion,pieza.bando))
+            self.remove(self.piezas,pieza)
+        elif pieza_elegida==TipoPieza.ALFIL:
+            self.piezas.append(Pieza(TipoPieza.ALFIL,True,pieza.posicion,pieza.bando))
+            self.remove(self.piezas,pieza)
+        elif pieza_elegida==TipoPieza.CABALLO:
+            self.piezas.append(Pieza(TipoPieza.CABALLO,True,pieza.posicion,pieza.bando))
+            self.remove(self.piezas,pieza)
+
+
     def enpasseau(self,pieza):
        pass
     def posibles_movimientos_de_reina(self,pieza):
@@ -351,12 +408,16 @@ class Tablero():
         lista_de_piezas = []
         rey_blanco = self.encontrar_rey(TipoBando.BLANCO)
         rey_negro = self.encontrar_rey(TipoBando.NEGRO)
+        rey = rey_negro
+        if turno == TipoBando.BLANCO:
+            rey = rey_blanco
         for a in self.piezas:
-            for b in self.posibles_movimientos(a,turno, sin_rey):
-                if rey_blanco!=None and turno==rey_blanco.bando and rey_blanco.posicion == b:
-                    lista_de_piezas.append(a)
-                if rey_negro!=None and turno==rey_negro.bando and rey_negro.posicion == b:
-                    lista_de_piezas.append(a)
+            if a.bando != turno:
+                for b in self.posibles_movimientos(a, a.bando, sin_rey):
+                    if rey != None and rey.posicion == b:
+                        lista_de_piezas.append(a.posicion)
+
+        print("Tiene jaque:", lista_de_piezas, turno)
         return lista_de_piezas
 
     def tiene_jaque(self,turno, sin_rey=False):
@@ -370,76 +431,97 @@ class Tablero():
             return TipoBando.NEGRO
         else:
             return TipoBando.BLANCO
-    def posibles_movimientos_rey_bien(self,pieza,turno):
-        lista_de_movimiento=self.posibles_movimientos_de_rey(pieza)
-        posicion_moment=pieza.posicion
-        #Eliminamos los movimiento que hacen jaque
-        for b in self.posibles_movimientos_de_rey(pieza):
-            #hay que remover y luego agregar a la lista al alfil si el rey puede comer
-            la_que_hace = self.encontrar_pieza(b)
-            if la_que_hace != None:
-                self.remover_pieza(la_que_hace)
-            pieza.posicion = b
-            if self.tiene_jaque(turno,True) == True:
-                self.remove(lista_de_movimiento, b)
-            if la_que_hace != None:
-                self.piezas.append(la_que_hace)
-        pieza.posicion=posicion_moment
-
-
-        # ENROQUE, TODO falta negra
-        if pieza.movio==False:
-
+    def posibles_movimientos_enroque(self,pieza,lista_de_movimiento,turno):
+        if pieza.movio == False:
             # lo hacemos para la fila 1 y 8
-            for fila in [1,8]:
-                #Agrega los movimientos de enroque
-                posReyColDerecha=pieza.posicion[0]+2
-                if self.encontrar_pieza((posReyColDerecha,fila))==None:
-                    lista_de_movimiento.append((posReyColDerecha,fila))
-                posReyColIzquierda=pieza.posicion[0]-2
-                if self.encontrar_pieza((posReyColIzquierda,fila))==None:
-                    lista_de_movimiento.append((posReyColIzquierda,fila))
+            for fila in [1, 8]:
+                # Agrega los movimientos de enroque
+                posReyColDerecha = pieza.posicion[0] + 2
+                if self.encontrar_pieza((posReyColDerecha, fila)) == None:
+                    lista_de_movimiento.append((posReyColDerecha, fila))
+                posReyColIzquierda = pieza.posicion[0] - 2
+                if self.encontrar_pieza((posReyColIzquierda, fila)) == None:
+                    lista_de_movimiento.append((posReyColIzquierda, fila))
 
-                #elimina los movimientos de enroque si hay un jaque posible
+                # elimina los movimientos de enroque si hay un jaque posible
                 for cualquiera in self.piezas:
-                    if cualquiera.bando!=pieza.bando:
-                        lista_de_movimientos_totales=self.posibles_movimientos(cualquiera, self.anti_turno(turno),True)
-                        if lista_de_movimientos_totales!=None:
+                    if cualquiera.bando != pieza.bando:
+                        lista_de_movimientos_totales = self.posibles_movimientos(cualquiera, self.anti_turno(turno),
+                                                                                 True)
+                        if lista_de_movimientos_totales != None:
                             for d in lista_de_movimientos_totales:
                                 for e in lista_de_movimiento:
                                     posReyColizq1 = pieza.posicion[0] - 1
                                     posReyColDer1 = pieza.posicion[0] + 1
-                                    if (d[0] == posReyColizq1 and d[1]==fila):
-                                        self.remove(lista_de_movimiento,(d[0] - 2, d[1]))
-                                        self.remove(lista_de_movimiento,(d[0] - 1, d[1]))
-                                    elif (d[0] == posReyColDer1 and d[1]==fila):
-                                        self.remove(lista_de_movimiento,(d[0] + 2, d[1]))
-                                        self.remove(lista_de_movimiento,(d[0] + 1, d[1]))
-                                    elif d==e:
+                                    if (d[0] == posReyColizq1 and d[1] == fila):
+                                        self.remove(lista_de_movimiento, (d[0] - 2, d[1]))
+                                        self.remove(lista_de_movimiento, (d[0] - 1, d[1]))
+                                    elif (d[0] == posReyColDer1 and d[1] == fila):
+                                        self.remove(lista_de_movimiento, (d[0] + 2, d[1]))
+                                        self.remove(lista_de_movimiento, (d[0] + 1, d[1]))
+                                    elif d == e:
                                         lista_de_movimiento.remove(d)
-                                    
-            #  Elima el enroque si hay una pieza en la trayectoria                     
+
+
+            #  Elima el enroque si hay una pieza en la trayectoria
             if (pieza.posicion[0] - 2, pieza.posicion[1]) in lista_de_movimiento:
-                if pieza.bando==TipoBando.BLANCO and (self.encontrar_pieza((1, 1) != None
-                    or self.encontrar_pieza((1, 1)).movio == True or self.encontrar_pieza((1, 1)).tipo!=TipoPieza.TORRE) \
-                    or self.encontrar_pieza((2,1)) != None or self.encontrar_pieza((3,1))!=None or self.encontrar_pieza((4,1))!=None):
-
-                    self.remove(lista_de_movimiento,(pieza.posicion[0] - 2, pieza.posicion[1]))
-                if pieza.bando==TipoBando.NEGRO and (self.encontrar_pieza((1, 8) != None
-                    or self.encontrar_pieza((1, 8)).movio == True or self.encontrar_pieza((1, 8)).tipo!=TipoPieza.TORRE)\
-                    or self.encontrar_pieza((2,8))!=None or self.encontrar_pieza((3,8))!=None or self.encontrar_pieza((4,8))!=None):
-                    self.remove(lista_de_movimiento,(pieza.posicion[0] - 2, pieza.posicion[1]))
+                if pieza.bando == TipoBando.BLANCO and (self.encontrar_pieza((1, 1) != None
+                                                                             or self.encontrar_pieza(
+                    (1, 1)).movio == True or self.encontrar_pieza((1, 1)).tipo != TipoPieza.TORRE) \
+                                                        or self.encontrar_pieza((2, 1)) != None or self.encontrar_pieza(
+                            (3, 1)) != None or self.encontrar_pieza((4, 1)) != None):
+                    self.remove(lista_de_movimiento, (pieza.posicion[0] - 2, pieza.posicion[1]))
+                if pieza.bando == TipoBando.NEGRO and (self.encontrar_pieza((1, 8) != None
+                                                                            or self.encontrar_pieza(
+                    (1, 8)).movio == True or self.encontrar_pieza((1, 8)).tipo != TipoPieza.TORRE) \
+                                                       or self.encontrar_pieza((2, 8)) != None or self.encontrar_pieza(
+                            (3, 8)) != None or self.encontrar_pieza((4, 8)) != None):
+                    self.remove(lista_de_movimiento, (pieza.posicion[0] - 2, pieza.posicion[1]))
             if (pieza.posicion[0] + 2, pieza.posicion[1]) in lista_de_movimiento:
-                if pieza.bando==TipoBando.BLANCO and (self.encontrar_pieza((8, 1) != None or self.encontrar_pieza((8, 1)).movio == True
-                    or self.encontrar_pieza((8, 1)).tipo!=TipoPieza.TORRE) or self.encontrar_pieza((7,1))!=None or self.encontrar_pieza((6,1))!=None):
-                    self.remove(lista_de_movimiento,(pieza.posicion[0] + 2, pieza.posicion[1]))
-                if pieza.bando==TipoBando.NEGRO and (self.encontrar_pieza((8, 8) != None or self.encontrar_pieza((8, 8)).movio == True
-                    or self.encontrar_pieza((8, 8)).tipo!=TipoPieza.TORRE) or self.encontrar_pieza((7,8))!=None or self.encontrar_pieza((6,8))!=None):
-                    self.remove(lista_de_movimiento,(pieza.posicion[0] + 2, pieza.posicion[1]))
+                if pieza.bando == TipoBando.BLANCO and (
+                        self.encontrar_pieza((8, 1) != None or self.encontrar_pieza((8, 1)).movio == True
+                                             or self.encontrar_pieza(
+                            (8, 1)).tipo != TipoPieza.TORRE) or self.encontrar_pieza(
+                    (7, 1)) != None or self.encontrar_pieza((6, 1)) != None):
+                    self.remove(lista_de_movimiento, (pieza.posicion[0] + 2, pieza.posicion[1]))
+                if pieza.bando == TipoBando.NEGRO and (
+                        self.encontrar_pieza((8, 8) != None or self.encontrar_pieza((8, 8)).movio == True
+                                             or self.encontrar_pieza(
+                            (8, 8)).tipo != TipoPieza.TORRE) or self.encontrar_pieza(
+                    (7, 8)) != None or self.encontrar_pieza((6, 8)) != None):
+                    self.remove(lista_de_movimiento, (pieza.posicion[0] + 2, pieza.posicion[1]))
 
+    def posibles_movimientos_rey_bien(self,pieza,turno):
+        lista_de_movimiento=self.posibles_movimientos_de_rey(pieza)
+        print("pos del rey", pieza.posicion, pieza.bando, " ", lista_de_movimiento,  inspect.stack()[3][3])
+        posicion_moment=pieza.posicion
+        #Eliminamos los movimiento que hacen jaque
+        for b in lista_de_movimiento.copy():
+            #hay que remover y luego agregar a la lista al alfil si el rey puede comer
+            la_que_hace = self.encontrar_pieza(b)
+            if la_que_hace != None:
+                self.remover_pieza(la_que_hace)
+                pieza.posicion = b
+                if self.tiene_jaque(turno,True) == True:
+                    print("remmove1 by", b)
+                    self.remove(lista_de_movimiento, b)
+                self.piezas.append(la_que_hace)
+                pieza.posicion=posicion_moment
 
+        # ENROQUE
+        if pieza.movio == False:
+            self.posibles_movimientos_enroque(pieza,lista_de_movimiento,turno)
 
+        #eliminar los casos donde el peon hace jaque al movimiento del rey
+        for peon in self.piezas:
+            if peon.tipo==TipoPieza.PEON and peon.bando!=pieza.bando:
+                peon_puede_comer=self.posibles_movimientos_bien_peon(peon,peon.bando,True)
+                for movimientos in peon_puede_comer:
+                    if movimientos in lista_de_movimiento:
+                        print("remove por por diagonal peon", movimientos, " ", peon.posicion)
+                        self.remove(lista_de_movimiento,movimientos)
 
+        print("LISTA COMPLETA", pieza.bando, " ",  lista_de_movimiento)
         return lista_de_movimiento
     def evitar_jaque(self,pieza,turno):
         #ver si hay posibles movimientos del rey si hay jaque
@@ -456,8 +538,6 @@ class Tablero():
                 if la_que_hace!=None:
                     self.piezas.append(la_que_hace)
         pieza.posicion=posicion_momentanea
-        if pieza.tipo==TipoPieza.REY:
-            lista_de_movimientos.extend(self.posibles_movimientos(self.encontrar_rey(pieza.bando),turno))
         return lista_de_movimientos
     def piezas_a_letras(self,pieza):
         if TipoBando.BLANCO==pieza.bando:
@@ -531,13 +611,24 @@ class Tablero():
         return lista_strins_inicial
 
     def game_over(self,turno):
-
+        if self.tiene_jaque(turno) == False:
+            return False
         listilla = []
         for a in self.piezas:
-            for b in self.evitar_jaque(a,turno):
-                listilla.append(b)
-                if len(listilla) > 0 and self.tiene_jaque(turno) == True:
-                    return True
-        return False
+            if turno==a.bando:
+                for b in self.evitar_jaque(a,turno):
+                    listilla.append(b)
+        if len(listilla) > 0:
+            return False
 
+        return True
+    def tablas(self,turno):
+       # print("Validar tablas ", turno)
+        for a in self.piezas:
+            if a.bando == turno:
+                if len(self.posibles_movimientos_bien(a,turno)) > 0:
+                    print("TABLAS:",self.posibles_movimientos_bien(a,turno))
+                    return False
+
+        return True
 
